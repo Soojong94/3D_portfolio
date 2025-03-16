@@ -10,9 +10,18 @@
 
 <body>
   <div id="canvas-container"></div>
+
+  <!-- 컨트롤 힌트 -->
   <div class="controls-hint">
-    <p>Click on buildings to learn more | Use mouse to rotate, zoom and pan</p>
+    <p>WASD 또는 방향키로 이동 | 마우스로 시점 조절 | 건물 근처에서 E키로 정보 보기</p>
   </div>
+
+  <!-- 모바일 컨트롤러 -->
+  <div id="mobile-controls" class="mobile-only">
+    <div id="joystick-area"></div>
+    <button id="interact-btn">정보 보기</button>
+  </div>
+
   <script type="module" src="./js/main.js"></script>
 </body>
 

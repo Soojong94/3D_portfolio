@@ -140,4 +140,339 @@ p {
 }
 
 .close-btn {
-  position: absolute
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  color: #5d738b;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #3a4a5c;
+  background-color: rgba(93, 115, 139, 0.1);
+}
+
+.controls-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: #5d738b;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.controls-hint:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 추가: 로딩 인디케이터 */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f5f9;
+  z-index: 20;
+  transition: opacity 0.5s ease;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(126, 168, 196, 0.3);
+  border-radius: 50%;
+  border-top-color: #7ea8c4;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 추가: 모바일 최적화 */
+@media (max-width: 768px) {
+  .building-info {
+    bottom: 5rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: unset;
+  }
+
+  .welcome-content {
+    margin: 0 1.5rem;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .controls-hint {
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* 추가: 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+
+  body,
+  html {
+    background-color: #1a1a2e;
+    color: #f0f0f0;
+  }
+
+  .welcome-panel {
+    background-color: rgba(26, 26, 46, 0.9);
+  }
+
+  .welcome-content {
+    background-color: #242442;
+  }
+
+  h1,
+  h4 {
+    color: #f0f0f0;
+  }
+
+  h2,
+  p {
+    color: #c8c8c8;
+  }
+
+  .building-info {
+    background-color: rgba(36, 36, 66, 0.95);
+    border-left: 5px solid #7ea8c4;
+  }
+
+  .close-btn {
+    color: #c8c8c8;
+  }
+
+  .close-btn:hover {
+    color: #ffffff;
+    background-color: rgba(200, 200, 200, 0.1);
+  }
+
+  .controls-hint {
+    background-color: rgba(36, 36, 66, 0.85);
+    color: #c8c8c8;
+  }
+
+  .primary-btn {
+    box-shadow: 0 4px 15px rgba(126, 168, 196, 0.2);
+  }
+}
+
+/* Add to styles.css */
+
+/* Left side panel styling */
+.building-info.left-side-panel {
+  left: 0;
+  right: auto;
+  bottom: 0;
+  top: 0;
+  width: 33%;
+  /* Take up 1/3 of the screen */
+  max-width: 500px;
+  height: 100%;
+  border-left: none;
+  border-right: 5px solid #7ea8c4;
+  border-radius: 0;
+  padding: 2.5rem;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  /* Start off-screen */
+}
+
+.building-info.left-side-panel.hidden {
+  transform: translateX(-100%);
+}
+
+.building-info.left-side-panel h3 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #3a4a5c;
+  font-weight: 600;
+}
+
+.info-divider {
+  height: 3px;
+  background-color: #7ea8c4;
+  margin: 1.5rem 0;
+  width: 50px;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h4 {
+  font-size: 1.2rem;
+  color: #5d738b;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.project-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project-list li {
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid #7ea8c4;
+}
+
+.project-title {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #3a4a5c;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #5d738b;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background-color: #e5eef5;
+  color: #5d738b;
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .building-info.left-side-panel h3 {
+    color: #f0f0f0;
+  }
+
+  .project-title {
+    color: #e5eef5;
+  }
+
+  .skill-tag {
+    background-color: #343456;
+    color: #c8c8c8;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .building-info.left-side-panel {
+    width: 80%;
+    max-width: none;
+  }
+
+  .building-info.left-side-panel h3 {
+    font-size: 1.6rem;
+  }
+
+  .info-section h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* 추가: 모바일 컨트롤러 스타일 */
+.mobile-only {
+  display: none;
+}
+
+#mobile-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+#joystick-area {
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  position: relative;
+}
+
+#interact-btn {
+  padding: 1rem;
+  background-color: #7ea8c4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+/* 미니맵 스타일 */
+.minimap {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+/* 캐릭터 위치 표시 */
+.player-marker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: flex;
+  }
+}
